@@ -57,7 +57,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Sign in"/>
                                 <connections>
-                                    <segue destination="lpd-Zv-EMz" kind="show" id="1zV-Uu-euw"/>
+                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cah-xC-7Sz"/>
+                                    <segue destination="lpd-Zv-EMz" kind="show" identifier="OpenOverview" destinationCreationSelector="OpenOverview:" id="1zV-Uu-euw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxH-8J-UhO">
@@ -94,6 +95,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="2pJ-UZ-qrt"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="1rW-Mc-eoF" id="hTa-V8-XEg"/>
+                        <outlet property="passwordTextField" destination="rKb-SY-lFH" id="DXK-cW-Ijf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -1762,8 +1767,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yIl-9X-gmC"/>
-        <segue reference="82p-an-nrq"/>
         <segue reference="XD4-KM-9tY"/>
         <segue reference="CCU-VU-blW"/>
         <segue reference="fze-bL-IE7"/>

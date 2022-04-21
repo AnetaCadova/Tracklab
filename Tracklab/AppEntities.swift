@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User {
+struct User : Encodable, Decodable {
     let id: Int
     let email: String
     let firstName: String
@@ -15,13 +15,13 @@ struct User {
     let password: String
 }
 
-struct Semester {
+struct Semester : Encodable, Decodable{
     let id: Int
     let name: String
     let userId: Int
 }
 
-struct Subject {
+struct Subject : Encodable, Decodable {
     let id: Int
     let name: String
     let code: String
@@ -33,7 +33,7 @@ struct Subject {
     let userId: Int
 }
 
-struct Task {
+struct Task : Encodable, Decodable {
     let id: Int
     let name: String
     let maxPoints: Int
@@ -44,7 +44,7 @@ struct Task {
     let userId: Int
 }
 
-protocol Evaluation {
+protocol Evaluation : Encodable, Decodable {
     var id: Int { get set }
     var name: String { get set }
     var maxPoints: Double { get set }
@@ -63,7 +63,7 @@ extension Evaluation {
     }
 }
 
-struct PassFail: Evaluation {
+struct PassFail: Evaluation, Encodable, Decodable {
     var id: Int
     var name: String
     var maxPoints: Double
@@ -75,7 +75,7 @@ struct PassFail: Evaluation {
     }
 }
 
-struct Exam: Evaluation {
+struct Exam: Evaluation, Encodable, Decodable  {
     var id: Int
     var name: String
     var maxPoints: Double
