@@ -12,7 +12,7 @@ public class Semester: Object {
     @Persisted(primaryKey: true) var id: Int
     @Persisted var name: String
     @Persisted var user: User?
-    @Persisted var numberOfCredits: Int
+    @Persisted var numberOfCredits: Int = 0
 
     static func incrementID() -> Int {
         let realm = try! Realm()
