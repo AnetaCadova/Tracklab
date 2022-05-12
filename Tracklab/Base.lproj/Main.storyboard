@@ -497,6 +497,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="Lq7-FA-ssd">
                             <connections>
                                 <action selector="deleteSemester:" destination="UcK-Wl-SgN" id="Q0O-fH-fhS"/>
+                                <segue destination="ldh-g7-MEJ" kind="show" id="aIU-nw-rKh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -509,7 +510,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4P-f7-1eW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4043" y="287"/>
+            <point key="canvasLocation" x="4097" y="287"/>
         </scene>
         <!--My subject 1-->
         <scene sceneID="occ-MV-Oy0">
@@ -1117,7 +1118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C2J-10-xjz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3670" y="1082"/>
+            <point key="canvasLocation" x="4096" y="1035"/>
         </scene>
         <!--Add new scale-->
         <scene sceneID="PgN-s1-SQG">
@@ -1366,16 +1367,65 @@
             </objects>
             <point key="canvasLocation" x="1901" y="2577"/>
         </scene>
+        <!--Delete semester-->
+        <scene sceneID="3RP-Vg-KjN">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDs-Ua-ur1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="ldh-g7-MEJ" customClass="DeleteSemesterController" customModule="Tracklab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ouK-cg-X3M">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fM-ni-9lh">
+                                <rect key="frame" x="33" y="101" width="302" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VM-ih-wsg">
+                                <rect key="frame" x="90" y="216" width="100" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Cancel"/>
+                                <connections>
+                                    <segue destination="UcK-Wl-SgN" kind="show" id="hig-tt-G6O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkS-YA-bnw">
+                                <rect key="frame" x="224" y="216" width="100" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Delete">
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteSemester:" destination="ldh-g7-MEJ" eventType="touchUpInside" id="CJe-bg-v4a"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bt5-ks-h4o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Delete semester" id="dvw-FH-BS9"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="deleteLabel" destination="7fM-ni-9lh" id="b2u-Pv-uOE"/>
+                        <segue destination="EIS-Ak-IV3" kind="show" identifier="deleteToList" id="J93-uq-J7I"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3337.68115942029" y="1034.5982142857142"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vjP-RS-DPY"/>
-        <segue reference="Nfu-Om-u9x"/>
         <segue reference="fze-bL-IE7"/>
         <segue reference="OJy-Uz-HCJ"/>
         <segue reference="BPS-j4-RIH"/>
-        <segue reference="aou-J1-C9K"/>
+        <segue reference="hig-tt-G6O"/>
         <segue reference="1zV-Uu-euw"/>
-        <segue reference="zUx-Dx-MQQ"/>
+        <segue reference="J93-uq-J7I"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
@@ -1387,6 +1437,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

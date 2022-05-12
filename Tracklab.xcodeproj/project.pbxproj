@@ -13,6 +13,7 @@
 		884893E427EB65530042D0C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884893E227EB65530042D0C4 /* Main.storyboard */; };
 		884893E627EB65540042D0C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884893E527EB65540042D0C4 /* Assets.xcassets */; };
 		884893E927EB65540042D0C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884893E727EB65540042D0C4 /* LaunchScreen.storyboard */; };
+		887EBEDA282C831800E19273 /* DeleteSemesterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887EBED9282C831800E19273 /* DeleteSemesterController.swift */; };
 		88975D81281B2603005DED81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88975D80281B2603005DED81 /* User.swift */; };
 		88975D84281B28A3005DED81 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 88975D83281B28A3005DED81 /* RealmSwift */; };
 		88975D86281B2D59005DED81 /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88975D85281B2D59005DED81 /* Semester.swift */; };
@@ -37,6 +38,7 @@
 		884893E527EB65540042D0C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		884893E827EB65540042D0C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		884893EA27EB65540042D0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		887EBED9282C831800E19273 /* DeleteSemesterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSemesterController.swift; sourceTree = "<group>"; };
 		88975D80281B2603005DED81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		88975D85281B2D59005DED81 /* Semester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
 		88975D87281B2DBA005DED81 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				88975D94281B5AEB005DED81 /* CreateSemesterController.swift */,
 				88975D98281B6A2E005DED81 /* DetailSemesterController.swift */,
 				88975D9C281BAFF0005DED81 /* ListSemestersController.swift */,
+				887EBED9282C831800E19273 /* DeleteSemesterController.swift */,
 			);
 			path = Semester;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				88975D86281B2D59005DED81 /* Semester.swift in Sources */,
 				88975D88281B2DBA005DED81 /* Subject.swift in Sources */,
 				884893DD27EB65530042D0C4 /* AppDelegate.swift in Sources */,
+				887EBEDA282C831800E19273 /* DeleteSemesterController.swift in Sources */,
 				88975D8E281B3251005DED81 /* Exam.swift in Sources */,
 				88975D95281B5AEB005DED81 /* CreateSemesterController.swift in Sources */,
 				88975D9D281BAFF0005DED81 /* ListSemestersController.swift in Sources */,
