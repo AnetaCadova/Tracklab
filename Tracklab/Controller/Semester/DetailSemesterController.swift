@@ -30,6 +30,11 @@ class DetailSemesterController: UIViewController {
         semesterName.title = semester?.name
         numberOfCreditsLabel.text = credits
     }
-    @IBAction func deleteSemester(_ sender: Any) {
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is DeleteSemesterController {
+            let viewController = segue.destination as? DeleteSemesterController
+            viewController?.semesterId = semesterId
+        }
     }
 }
