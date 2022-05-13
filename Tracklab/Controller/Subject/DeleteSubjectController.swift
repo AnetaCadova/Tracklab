@@ -24,7 +24,7 @@ class DeleteSubjectController: UIViewController {
         let realm = try! Realm()
 
         let subject = realm.object(ofType: Subject.self, forPrimaryKey: subjectId)
-        deleteSubjectLabel.text = "Are you sure you want to delete " + (subject?.name ?? "the semester") + " ?"
+        deleteSubjectLabel.text = "Delete " + (subject?.name ?? "the semester") + " ?"
     }
 
     @IBAction func deleteSubject(_ sender: Any) {
