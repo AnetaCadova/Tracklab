@@ -14,8 +14,4 @@ public class Evaluation: Object {
     @Persisted var maxPoints: Double
     @Persisted var user: User?
 
-    static func incrementID() -> Int {
-        let realm = try! Realm()
-        return (realm.objects(Semester.self).max(ofProperty: "id") as Int? ?? 0) + 1
-    }
 }

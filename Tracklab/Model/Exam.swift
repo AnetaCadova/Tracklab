@@ -14,4 +14,9 @@ public class Exam: Evaluation {
     @Persisted var lowestC: Double
     @Persisted var lowestB: Double
     @Persisted var lowestA: Double
+
+    static func incrementID() -> Int {
+        let realm = try! Realm()
+        return (realm.objects(Exam.self).max(ofProperty: "id") as Int? ?? 0) + 1
+    }
 }
