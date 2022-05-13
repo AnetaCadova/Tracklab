@@ -56,7 +56,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Sign in"/>
                                 <connections>
-                                    <segue destination="lpd-Zv-EMz" kind="show" identifier="openOverview" id="1zV-Uu-euw"/>
+                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cuE-ET-S6d"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxH-8J-UhO">
@@ -77,7 +77,7 @@
                                 <rect key="frame" x="34" y="278" width="348" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Nx-kC-0Bx">
                                 <rect key="frame" x="34" y="460" width="173" height="31"/>
@@ -105,6 +105,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="1rW-Mc-eoF" id="ulW-3H-zjw"/>
                         <outlet property="passwordTextField" destination="rKb-SY-lFH" id="Zm4-zX-nfa"/>
+                        <segue destination="lpd-Zv-EMz" kind="show" identifier="signInToOverView" id="yrp-mF-qi2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -929,7 +930,7 @@
             <objects>
                 <viewController id="OTF-BY-fdl" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SoU-cy-G9k">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4po-En-KLY">
@@ -1000,7 +1001,7 @@
             <objects>
                 <viewController id="B0l-Eo-dj9" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kcC-Gp-Gr0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgT-9O-UuR">
@@ -1246,7 +1247,7 @@
             <objects>
                 <viewController id="9Cj-4x-Qtr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bVI-40-fgl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max points:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rn3-4g-qxP">
@@ -1373,7 +1374,7 @@
             <objects>
                 <viewController id="Kk5-m2-Che" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pfC-Rd-Jnc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="AjK-za-R84">
@@ -1643,12 +1644,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r7o-n0-31v"/>
         <segue reference="fze-bL-IE7"/>
         <segue reference="VgT-ft-BkB"/>
         <segue reference="W9m-U5-lOy"/>
         <segue reference="zKI-dT-bGB"/>
-        <segue reference="1zV-Uu-euw"/>
+        <segue reference="yrp-mF-qi2"/>
         <segue reference="mAi-0C-FI3"/>
         <segue reference="J93-uq-J7I"/>
     </inferredMetricsTieBreakers>
