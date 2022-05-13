@@ -23,7 +23,7 @@ class DeleteTaskController: UIViewController {
         let realm = try! Realm()
 
         let task = realm.object(ofType: Task.self, forPrimaryKey: taskId)
-        deleteTaskLabel.text = "Are you sure you want to delete " + (task?.name ?? "the semester") + " ?"
+        deleteTaskLabel.text = "Delete " + (task?.name ?? "the semester") + " ?"
     }
 
     @IBAction func deleteTask(_ sender: Any) {

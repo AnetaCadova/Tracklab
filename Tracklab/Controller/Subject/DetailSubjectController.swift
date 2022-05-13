@@ -17,13 +17,20 @@ class DetailSubjectController: UIViewController {
 
     @IBOutlet var codeLabel: UITextField!
     @IBOutlet var goalLabel: UITextField!
-    @IBOutlet var progressBar: UIProgressView!
     @IBOutlet var tableView: UITableView!
-
+    @IBOutlet weak var goalProgressBar: UIProgressView!
+    @IBOutlet weak var currentPointsTextField: UITextField!
+    @IBOutlet weak var maxPointsTextField: UITextField!
+    @IBOutlet weak var currentProgressBar: UIProgressView!
+    
     override func viewDidLoad() {
         load()
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        load()
     }
 
     func load() {
@@ -36,6 +43,10 @@ class DetailSubjectController: UIViewController {
         subjectNameLabel.title = subject?.name
         numberOfCreditsLabel.text = credits
         goalLabel.text = subject?.goal
+        currentPointsTextField.text=String(subject!.currentPoints)
+        maxPointsTextField.text=String(subject!.exam!.maxPoints)
+        setProgressBar(progressBar: goalProgressBar! , subject: subject!, points: parseGoal(subject: subject!, goal: subject!.goal))
+        setProgressBar(progressBar: currentProgressBar! , subject: subject!, points: subject!.currentPoints)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,6 +61,37 @@ class DetailSubjectController: UIViewController {
         if segue.destination is CreateTaskController {
             let viewController = segue.destination as? CreateTaskController
             viewController?.subjectId = subjectId
+        }
+    }
+
+    func parseGoal(subject: Subject, goal: String) -> Double {
+        if subject.exam != nil {
+            if goal=="A" {
+                return subject.exam!.lowestA
+            }
+            if goal=="B" {
+                return subject.exam!.lowestB
+            }
+            if goal=="C" {
+                return subject.exam!.lowestC
+            }
+            if goal=="D" {
+                return subject.exam!.lowestD
+            }
+            if goal=="E" {
+                return subject.exam!.lowestE
+            }
+        } else {
+            return Double(goal)!
+        }
+        return 0
+    }
+
+    func setProgressBar(progressBar: UIProgressView, subject: Subject, points: Double) {
+        if points == 0 {
+            progressBar.progress = 0
+        } else {
+            progressBar.progress = Float(points / subject.exam!.maxPoints)
         }
     }
 }

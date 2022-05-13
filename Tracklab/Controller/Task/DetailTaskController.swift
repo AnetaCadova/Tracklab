@@ -11,7 +11,7 @@ import UIKit
 
 class DetailTaskController: UIViewController {
     var taskId: Int?
-
+    
     @IBOutlet var dueDateLabel: UITextField!
     @IBOutlet var taskNameLabel: UINavigationItem!
     @IBOutlet var currentPointsLabel: UITextField!
@@ -67,6 +67,7 @@ class DetailTaskController: UIViewController {
             task?.currentPoints=Double(currentPointsLabel.text!)!
             task?.maxPoints=Double(maxPointsLabel.text!)!
             task?.goal=Double(goalLabel.text!)!
+            task?.subject?.currentPoints=task!.subject!.currentPoints+task!.currentPoints
             setProgressBar(task: task!)
         }
         lockTextFields()
@@ -91,7 +92,6 @@ class DetailTaskController: UIViewController {
         if task.currentPoints == 0 {
             progressBar.progress=0
         } else {
-            let x=Float(task.currentPoints/task.maxPoints)
             progressBar.progress=Float(task.currentPoints/task.maxPoints)
         }
     }

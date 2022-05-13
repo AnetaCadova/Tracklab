@@ -23,7 +23,7 @@ class DeleteSemesterController: UIViewController {
         let realm = try! Realm()
 
         let semester = realm.object(ofType: Semester.self, forPrimaryKey: semesterId)
-        deleteLabel.text = "Are you sure you want to delete " + (semester?.name ?? "the semester") + " ?"
+        deleteLabel.text = "Delete " + (semester?.name ?? "the semester") + " ?"
     }
 
     @IBAction func deleteSemester(_ sender: Any) {
