@@ -14,6 +14,12 @@
 		884893E627EB65540042D0C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884893E527EB65540042D0C4 /* Assets.xcassets */; };
 		884893E927EB65540042D0C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884893E727EB65540042D0C4 /* LaunchScreen.storyboard */; };
 		887EBEDA282C831800E19273 /* DeleteSemesterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887EBED9282C831800E19273 /* DeleteSemesterController.swift */; };
+		8881585B282DA9B700203538 /* DeleteSubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881585A282DA9B700203538 /* DeleteSubjectController.swift */; };
+		8881585D282DA9C700203538 /* CreateSubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881585C282DA9C700203538 /* CreateSubjectController.swift */; };
+		8881585F282DD89A00203538 /* CreateTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881585E282DD89A00203538 /* CreateTaskController.swift */; };
+		88815861282DD8BC00203538 /* DeleteTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88815860282DD8BC00203538 /* DeleteTaskController.swift */; };
+		88815863282DD8D500203538 /* DetailTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88815862282DD8D500203538 /* DetailTaskController.swift */; };
+		88815865282DE9A500203538 /* DetailSubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88815864282DE9A500203538 /* DetailSubjectController.swift */; };
 		88975D81281B2603005DED81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88975D80281B2603005DED81 /* User.swift */; };
 		88975D84281B28A3005DED81 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 88975D83281B28A3005DED81 /* RealmSwift */; };
 		88975D86281B2D59005DED81 /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88975D85281B2D59005DED81 /* Semester.swift */; };
@@ -39,6 +45,12 @@
 		884893E827EB65540042D0C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		884893EA27EB65540042D0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		887EBED9282C831800E19273 /* DeleteSemesterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSemesterController.swift; sourceTree = "<group>"; };
+		8881585A282DA9B700203538 /* DeleteSubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSubjectController.swift; sourceTree = "<group>"; };
+		8881585C282DA9C700203538 /* CreateSubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSubjectController.swift; sourceTree = "<group>"; };
+		8881585E282DD89A00203538 /* CreateTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskController.swift; sourceTree = "<group>"; };
+		88815860282DD8BC00203538 /* DeleteTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTaskController.swift; sourceTree = "<group>"; };
+		88815862282DD8D500203538 /* DetailTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTaskController.swift; sourceTree = "<group>"; };
+		88815864282DE9A500203538 /* DetailSubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubjectController.swift; sourceTree = "<group>"; };
 		88975D80281B2603005DED81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		88975D85281B2D59005DED81 /* Semester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
 		88975D87281B2DBA005DED81 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
@@ -138,6 +150,9 @@
 		88975DA4281BB273005DED81 /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				8881585E282DD89A00203538 /* CreateTaskController.swift */,
+				88815860282DD8BC00203538 /* DeleteTaskController.swift */,
+				88815862282DD8D500203538 /* DetailTaskController.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -145,6 +160,9 @@
 		88975DA5281BB27C005DED81 /* Subject */ = {
 			isa = PBXGroup;
 			children = (
+				8881585A282DA9B700203538 /* DeleteSubjectController.swift */,
+				8881585C282DA9C700203538 /* CreateSubjectController.swift */,
+				88815864282DE9A500203538 /* DetailSubjectController.swift */,
 			);
 			path = Subject;
 			sourceTree = "<group>";
@@ -234,21 +252,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				88975D8C281B31E1005DED81 /* Evaluation.swift in Sources */,
+				8881585B282DA9B700203538 /* DeleteSubjectController.swift in Sources */,
 				88975D8A281B30C0005DED81 /* Task.swift in Sources */,
 				884893E127EB65530042D0C4 /* SignInController.swift in Sources */,
+				88815863282DD8D500203538 /* DetailTaskController.swift in Sources */,
+				8881585D282DA9C700203538 /* CreateSubjectController.swift in Sources */,
 				88975D90281B3260005DED81 /* PassFail.swift in Sources */,
 				88975D99281B6A2E005DED81 /* DetailSemesterController.swift in Sources */,
 				88975D86281B2D59005DED81 /* Semester.swift in Sources */,
 				88975D88281B2DBA005DED81 /* Subject.swift in Sources */,
 				884893DD27EB65530042D0C4 /* AppDelegate.swift in Sources */,
 				887EBEDA282C831800E19273 /* DeleteSemesterController.swift in Sources */,
+				8881585F282DD89A00203538 /* CreateTaskController.swift in Sources */,
 				88975D8E281B3251005DED81 /* Exam.swift in Sources */,
+				88815861282DD8BC00203538 /* DeleteTaskController.swift in Sources */,
 				88975D95281B5AEB005DED81 /* CreateSemesterController.swift in Sources */,
 				88975D9D281BAFF0005DED81 /* ListSemestersController.swift in Sources */,
 				88975D81281B2603005DED81 /* User.swift in Sources */,
 				88975D97281B5B97005DED81 /* OverviewController.swift in Sources */,
 				88975D93281B597E005DED81 /* SignUpController.swift in Sources */,
 				884893DF27EB65530042D0C4 /* SceneDelegate.swift in Sources */,
+				88815865282DE9A500203538 /* DetailSubjectController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

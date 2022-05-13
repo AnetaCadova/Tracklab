@@ -13,7 +13,8 @@ public class Subject: Object {
     @Persisted var name: String
     @Persisted var code: String
     @Persisted var credits: Int
-    @Persisted var evaluationId: Int
+    @Persisted var exam: Exam?
+    @Persisted var passFail: PassFail?
     @Persisted var goal: String
     @Persisted var currentPoints: Double
     @Persisted var semester: Semester?

@@ -41,4 +41,24 @@ class DeleteSemesterController: UIViewController {
             viewController?.semesterId = semesterId
         }
     }
+
+    func deleteAllTasksAndSubjectsFromSemester(semetser: Semester) {
+        let realm = try! Realm()
+
+        let taskArr = realm.objects(Task.self)
+        for sub in realm.objects(Subject.self) {
+            if sub.semester == semetser {
+                for task in taskArr {
+                    if task.subject == sub {
+                        try! realm.write {
+                            realm.delete(task)
+                        }
+                    }
+                }
+                try! realm.write {
+                    realm.delete(sub)
+                }
+            }
+        }
+    }
 }
