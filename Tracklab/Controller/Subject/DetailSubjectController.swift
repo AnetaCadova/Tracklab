@@ -18,16 +18,16 @@ class DetailSubjectController: UIViewController {
     @IBOutlet var codeLabel: UITextField!
     @IBOutlet var goalLabel: UITextField!
     @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var goalProgressBar: UIProgressView!
-    @IBOutlet weak var currentPointsTextField: UITextField!
-    @IBOutlet weak var maxPointsTextField: UITextField!
-    @IBOutlet weak var currentProgressBar: UIProgressView!
-    
+    @IBOutlet var goalProgressBar: UIProgressView!
+    @IBOutlet var currentPointsTextField: UITextField!
+    @IBOutlet var currentProgressBar: UIProgressView!
+
     override func viewDidLoad() {
         load()
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         load()
@@ -43,10 +43,9 @@ class DetailSubjectController: UIViewController {
         subjectNameLabel.title = subject?.name
         numberOfCreditsLabel.text = credits
         goalLabel.text = subject?.goal
-        currentPointsTextField.text=String(subject!.currentPoints)
-        maxPointsTextField.text=String(subject!.exam!.maxPoints)
-        setProgressBar(progressBar: goalProgressBar! , subject: subject!, points: parseGoal(subject: subject!, goal: subject!.goal))
-        setProgressBar(progressBar: currentProgressBar! , subject: subject!, points: subject!.currentPoints)
+        currentPointsTextField.text = String(subject!.currentPoints) + " / " + String(parseMax(subject: subject!))
+        setProgressBar(progressBar: goalProgressBar!, subject: subject!, points: parseGoal(subject: subject!, goal: subject!.goal))
+        setProgressBar(progressBar: currentProgressBar!, subject: subject!, points: subject!.currentPoints)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,11 +86,19 @@ class DetailSubjectController: UIViewController {
         return 0
     }
 
+    func parseMax(subject: Subject) -> Double {
+        if subject.exam != nil {
+            return subject.exam!.maxPoints
+        } else {
+            return subject.passFail!.maxPoints
+        }
+    }
+
     func setProgressBar(progressBar: UIProgressView, subject: Subject, points: Double) {
-        if points == 0 {
+        if points==0 {
             progressBar.progress = 0
         } else {
-            progressBar.progress = Float(points / subject.exam!.maxPoints)
+            progressBar.progress = Float(points / parseMax(subject: subject))
         }
     }
 }
@@ -111,7 +118,9 @@ extension DetailSubjectController: UITableViewDelegate {
 extension DetailSubjectController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let realm = try! Realm()
-        return realm.objects(Task.self).count
+        return (realm.objects(Task.self).where {
+            $0.subject.id==subjectId!
+        }).count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -120,7 +129,9 @@ extension DetailSubjectController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskTableViewCell
         cell.taskNameLabel.font = UIFont(name: "SF Pro", size: 12)
 
-        let tasks = Array(realm.objects(Task.self))
+        let tasks = Array(realm.objects(Task.self).where {
+            $0.subject.id==subjectId!
+        })
         cell.taskNameLabel.text = tasks[indexPath.row].name
         cell.taskId = tasks[indexPath.row].id
 
