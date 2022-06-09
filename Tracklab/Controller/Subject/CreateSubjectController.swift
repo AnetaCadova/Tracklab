@@ -11,33 +11,45 @@ import UIKit
 
 class CreateSubjectController: UIViewController {
     var semesterId: Int?
+    var subjectId: Int?
+
    
    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var creditsTextField: UITextField!
-    @IBOutlet weak var goalTextField: UITextField!
     
-    @IBOutlet weak var ratingScaleTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func createSubject(_ sender: Any) {
+    @IBAction func AddExam(_ sender: Any) {
+        createSubject()
+        performSegue(withIdentifier: "createSubjectToExamScale", sender: self)
+
+    }
+    @IBAction func addPassFail(_ sender: Any) {
+        createSubject()
+        performSegue(withIdentifier: "createSubjectToPassFailScale", sender: self)
+        
+    }
+    
+    
+    func createSubject() {
         if checkSubjectInput()  {
             let realm = try! Realm()
            
             let semester = realm.object(ofType: Semester.self, forPrimaryKey: semesterId)
 
-            let exam = Exam()
-            exam.id = Exam.incrementID()
-            exam.name="testEval"
-            exam.maxPoints=100
-            exam.lowestA=90
-            exam.lowestB=80
-            exam.lowestC=70
-            exam.lowestD=60
-            exam.lowestE=50
+//            let exam = Exam()
+//            exam.id = Exam.incrementID()
+//            exam.name="testEval"
+//            exam.maxPoints=100
+//            exam.lowestA=90
+//            exam.lowestB=80
+//            exam.lowestC=70
+//            exam.lowestD=60
+//            exam.lowestE=50
 
             let subject = Subject()
             subject.id = Subject.incrementID()
@@ -45,27 +57,32 @@ class CreateSubjectController: UIViewController {
             subject.currentPoints=0
             subject.credits=Int(creditsTextField.text!)!
             subject.code=codeTextField.text!
-            subject.goal=goalTextField.text!
-            subject.exam=exam
+//            subject.goal=goalTextField.text!
+//            subject.exam=exam
             subject.semester = semester
             
+            subjectId = subject.id
+            
             try! realm.write {
-                realm.add(exam)
                 realm.add(subject)
                 semester!.numberOfCredits=semester!.numberOfCredits+subject.credits
             }
             
-            performSegue(withIdentifier: "createSubjectToList", sender: self)
         }
     }
   
     func checkSubjectInput() ->  Bool{
-        return !nameTextField.text!.isEmpty && !codeTextField.text!.isEmpty && !goalTextField.text!.isEmpty
+        return !nameTextField.text!.isEmpty && !codeTextField.text!.isEmpty && !creditsTextField.text!.isEmpty
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is DetailSemesterController {
-            let viewController = segue.destination as? DetailSemesterController
-            viewController?.semesterId = semesterId
+        if segue.destination is CreateExamScaleController {
+            let viewController = segue.destination as? CreateExamScaleController
+            viewController?.subjectId = subjectId
+        }
+        
+        if segue.destination is CreatePassFailController {
+            let viewController = segue.destination as? CreatePassFailController
+            viewController?.subjectId = subjectId
         }
     }
 }

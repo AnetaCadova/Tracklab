@@ -40,6 +40,7 @@ class DetailTaskController: UIViewController {
         goalProgressBar.progress=Float(task!.goal/task!.maxPoints)
         saveButon.isEnabled=false
         saveButon.isHidden=true
+        lockTextFields()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,6 +84,7 @@ class DetailTaskController: UIViewController {
     }
 
     func enableTextFields() {
+        dueDateLabel.isEnabled=true
         currentPointsLabel.isEnabled=true
         goalLabel.isEnabled=true
         maxPointsLabel.isEnabled=true

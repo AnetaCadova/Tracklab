@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		883D61562851F99000A8A141 /* CreateExamScaleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D61552851F99000A8A141 /* CreateExamScaleController.swift */; };
+		883D61582852117800A8A141 /* CreatePassFailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D61572852117800A8A141 /* CreatePassFailController.swift */; };
 		884893DD27EB65530042D0C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884893DC27EB65530042D0C4 /* AppDelegate.swift */; };
 		884893DF27EB65530042D0C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884893DE27EB65530042D0C4 /* SceneDelegate.swift */; };
 		884893E127EB65530042D0C4 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884893E027EB65530042D0C4 /* SignInController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		883D61552851F99000A8A141 /* CreateExamScaleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExamScaleController.swift; sourceTree = "<group>"; };
+		883D61572852117800A8A141 /* CreatePassFailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePassFailController.swift; sourceTree = "<group>"; };
 		884893D927EB65530042D0C4 /* Tracklab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracklab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884893DC27EB65530042D0C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		884893DE27EB65530042D0C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 		88975DA6281BB2B1005DED81 /* Evaluation */ = {
 			isa = PBXGroup;
 			children = (
+				883D61552851F99000A8A141 /* CreateExamScaleController.swift */,
+				883D61572852117800A8A141 /* CreatePassFailController.swift */,
 			);
 			path = Evaluation;
 			sourceTree = "<group>";
@@ -268,8 +274,10 @@
 				88815861282DD8BC00203538 /* DeleteTaskController.swift in Sources */,
 				88975D95281B5AEB005DED81 /* CreateSemesterController.swift in Sources */,
 				88975D9D281BAFF0005DED81 /* ListSemestersController.swift in Sources */,
+				883D61562851F99000A8A141 /* CreateExamScaleController.swift in Sources */,
 				88975D81281B2603005DED81 /* User.swift in Sources */,
 				88975D97281B5B97005DED81 /* OverviewController.swift in Sources */,
+				883D61582852117800A8A141 /* CreatePassFailController.swift in Sources */,
 				88975D93281B597E005DED81 /* SignUpController.swift in Sources */,
 				884893DF27EB65530042D0C4 /* SceneDelegate.swift in Sources */,
 				88815865282DE9A500203538 /* DetailSubjectController.swift in Sources */,

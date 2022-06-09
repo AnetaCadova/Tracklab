@@ -10,11 +10,11 @@ import RealmSwift
 import UIKit
 
 class DetailSemesterController: UIViewController {
-    var semesterId: Int?   
+    var semesterId: Int?
 
-    @IBOutlet weak var semesterName: UINavigationItem!
-    @IBOutlet weak var numberOfCreditsLabel: UITextField!
-    @IBOutlet  var tableView: UITableView!
+    @IBOutlet var semesterName: UINavigationItem!
+    @IBOutlet var numberOfCreditsLabel: UITextField!
+    @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         load()
         super.viewDidLoad()
@@ -42,17 +42,15 @@ class DetailSemesterController: UIViewController {
             viewController?.semesterId = semesterId
         }
     }
-    
-
 }
 
 extension DetailSemesterController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .fade)
-        
+
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "subjectDetail") as! DetailSubjectController
-        let subjectCell  = tableView.cellForRow(at: indexPath) as! SubjectTableViewCell
-        
+        let subjectCell = tableView.cellForRow(at: indexPath) as! SubjectTableViewCell
+
         vc.subjectId = subjectCell.sujectId
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -61,27 +59,32 @@ extension DetailSemesterController: UITableViewDelegate {
 extension DetailSemesterController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let realm = try! Realm()
-        return realm.objects(Subject.self).count
+
+        return (realm.objects(Subject.self).where {
+            $0.semester.id == semesterId!
+        }).count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let realm = try! Realm()
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubjectCell", for: indexPath) as! SubjectTableViewCell
         cell.subjectNameLabel.font = UIFont(name: "SF Pro", size: 12)
 
-        let subjects = Array(realm.objects(Subject.self))
+        let subjects = Array(realm.objects(Subject.self).where {
+            $0.semester.id == semesterId!
+        })
         cell.subjectNameLabel.text = subjects[indexPath.row].name
         cell.sujectId = subjects[indexPath.row].id
-        
+
         return cell
     }
 }
 
 class SubjectTableViewCell: UITableViewCell {
     var sujectId: Int?
-   
-    @IBOutlet weak var subjectNameLabel: UILabel!
+
+    @IBOutlet var subjectNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -90,4 +93,3 @@ class SubjectTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 }
-
